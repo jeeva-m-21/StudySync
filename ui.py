@@ -18,7 +18,7 @@ class StudySyncApp:
         self.auth = Auth(self.db)
         self.course_manager = CourseManager(self.db)
         self.todo_manager = ToDoManager(self.db)
-        self.pomodoro_timer = PomodoroTimer()
+        
         self.recap_material = RecapMaterial(self.db)
 
         self.user_id = None  # Logged-in user's ID
@@ -137,22 +137,7 @@ class StudySyncApp:
         tk.Button(self.root, text="Back to Dashboard", command=self.show_dashboard).pack()
 
     def show_pomodoro_timer(self):
-        """Display the Pomodoro timer."""
-        self.clear_window()
-
-        tk.Label(self.root, text="Pomodoro Timer").pack()
-
-        def start_work():
-            self.pomodoro_timer.start_work_session()
-
-        def start_break():
-            self.pomodoro_timer.start_break()
-
-        tk.Button(self.root, text="Start Work Session", command=start_work).pack()
-        tk.Button(self.root, text="Start Break", command=start_break).pack()
-
-        tk.Button(self.root, text="Back to Dashboard", command=self.show_dashboard).pack()
-
+       self.pomodoro_timer = PomodoroTimer()
     def show_recap(self):
         """Display recap input window."""
         self.clear_window()

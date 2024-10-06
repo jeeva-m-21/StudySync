@@ -20,7 +20,7 @@ class CourseManager:
         :param user_id: ID of the user.
         :return: A list of courses.
         """
-        return self.db.get_courses_by_user(user_id)
+        return self.db.get_courses(user_id)
 
     def update_course_progress(self, course_id: int, progress: str):
         """

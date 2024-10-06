@@ -19,7 +19,7 @@ class ToDoManager:
         :param course_id: ID of the course.
         :return: A list of tasks.
         """
-        return self.db.get_tasks_by_course(course_id)
+        return self.db.get_tasks(course_id)
 
     def mark_task_complete(self, task_id: int):
         """
