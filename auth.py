@@ -22,7 +22,8 @@ class Auth:
         :param password: New password.
         :return: True on successful signup.
         """
-        if not self.db.user_exists(username):
-            self.db.add_user(username, password)
-            return True
-        return False
+       
+        self.db.add_user(username, password)
+        return True
+        
+        

@@ -11,21 +11,35 @@ class PomodoroTimer:
         # Create GUI elements
         self.root = tk.Tk()
         self.root.title("Pomodoro Timer")
+        self.root.geometry("400x300")
+        self.root.config(bg="#f7f5dd")
 
-        self.label = tk.Label(self.root, text="Pomodoro Timer", font=("Helvetica", 24))
+        # Title Label
+        self.label = tk.Label(self.root, text="Pomodoro Timer", font=("Helvetica", 26, "bold"), bg="#f7f5dd", fg="#444444")
         self.label.pack(pady=20)
 
-        self.time_label = tk.Label(self.root, text=self.format_time(self.work_time), font=("Helvetica", 48))
+        # Time Display
+        self.time_label = tk.Label(self.root, text=self.format_time(self.work_time), font=("Helvetica", 50), bg="#f7f5dd", fg="#e7305b")
         self.time_label.pack(pady=20)
 
-        self.start_work_button = tk.Button(self.root, text="Start Work Session", command=self.start_work_session, font=("Helvetica", 14), bg="green", fg="white")
-        self.start_work_button.pack(pady=10)
+        # Button Frame for better layout
+        button_frame = tk.Frame(self.root, bg="#f7f5dd")
+        button_frame.pack(pady=10)
 
-        self.start_break_button = tk.Button(self.root, text="Start Break", command=self.start_break, font=("Helvetica", 14), bg="blue", fg="white")
-        self.start_break_button.pack(pady=10)
+        # Start Work Button
+        self.start_work_button = tk.Button(button_frame, text="Start Work Session", command=self.start_work_session,
+                                           font=("Helvetica", 14), bg="#9bdeac", fg="white", width=15)
+        self.start_work_button.grid(row=0, column=0, padx=5)
 
-        self.reset_button = tk.Button(self.root, text="Reset Timer", command=self.reset_timer, font=("Helvetica", 14), bg="red", fg="white")
-        self.reset_button.pack(pady=10)
+        # Start Break Button
+        self.start_break_button = tk.Button(button_frame, text="Start Break", command=self.start_break,
+                                            font=("Helvetica", 14), bg="#57c7e3", fg="white", width=15)
+        self.start_break_button.grid(row=0, column=1, padx=5)
+
+        # Reset Timer Button
+        self.reset_button = tk.Button(self.root, text="Reset Timer", command=self.reset_timer,
+                                      font=("Helvetica", 14), bg="#e7305b", fg="white", width=32)
+        self.reset_button.pack(pady=20)
 
         self.root.mainloop()
 
@@ -72,5 +86,5 @@ class PomodoroTimer:
         self.timer_running = False
         self.time_label.config(text=self.format_time(self.work_time))
 
-# Create the Pomodoro Timer obj
-#pomodoro_timer = PomodoroTimer()
+# Uncomment the line below to create and run the Pomodoro Timer
+# pomodoro_timer = PomodoroTimer()
