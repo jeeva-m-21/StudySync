@@ -3,13 +3,17 @@ from tkinter import messagebox
 from tkinter import font
 from database import Database  # Assuming you have a Database class for DB operations
 from pomodoro import Pomodoro
-
+import notes
+import materials
+import recordings
+import todo
 class CourseManagementUI:
     def __init__(self, master, username):
         self.master = master
         self.master.title("Course Management")
         self.username = username
-
+        global username1
+        username1=username
         # Title
         title_label = tk.Label(master, text="Manage Your Courses")
         title_label.pack(pady=10)
@@ -89,16 +93,16 @@ class CourseManagementUI:
 
     
         def manage_notes():
-            print("Managing Notes...")  # Placeholder for actual functionality
+            notes.start_notes_app(username1)
 
         def add_materials():
-            print("Adding Materials...")  # Placeholder for actual functionality
-
+            materials.run_materials(username1)
+ 
         def add_recording():
-            print("Adding Recording...")  # Placeholder for actual functionality
+           recordings.recordrunner(username1)  # Placeholder for actual functionality
     
         def manage_todo():
-            print("Managing To-Do List...")  # Placeholder for actual functionality
+            todo.todorunner(username1)
 
     # Button Style
         button_font = font.Font(family="Helvetica", size=12, weight="bold")
