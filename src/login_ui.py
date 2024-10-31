@@ -54,7 +54,6 @@ class LoginUI:
         CourseManagementUI(root, username)  # Initialize the course management page with the username
         root.mainloop()
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = LoginUI(root)
-    root.mainloop()
+root = tk.Tk()
+app = LoginUI(root)
+root.mainloop()
